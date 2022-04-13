@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .screenBlue {
+        height: 100vh;
+        color: #fff;
+        font-size: 5em;
+        text-align: center;
+        background-color: #88f;
+    }
+    .screenRed {
+        height: 100vh;
+        color: #fff;
+        font-size: 5em;
+        text-align: center;
+        background-color: #f88;
+    }
+    .pagetop{
+        display: none;
+        padding: 40px 10px;
+        background-color: #fff;
+        color:#000;
+        text-decoration: none;
+        border-radius: 100%;
+
+        position: fixed;
+        bottom: 50px;
+        right: 10px;
+
+    }
+    .pagetop:hover {
+        background-color: #ddd;
+        cursor: pointer;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="screenBlue">ここがトップページです</div>
+    <div class="screenRed">2ページ目</div>
+    <div class="screenBlue">3ページ目</div>
+    <div class="screenRed">4ページ目</div>
+    <div class="screenBlue">5ページ目</div>
+    <a class="pagetop" id="top" href="#">TOPに戻る</a>
+    <script>
+        const toplink = document.getElementById("top");
+        let scrollValue;
+
+        window.addEventListener("scroll",()=>{
+
+            scrollValue = document.scrollingElement.scrollTop;
+            
+            if (scrollValue>=300){
+                toplink.style.display="inline";
+
+            }else if(scrollValue<300){
+                toplink.style.display="none";
+                
+            }
+        });
+
+        
+
+        toplink.addEventListener("click", () => {
+        
+            //一定の間隔で繰り返し処理する
+            const timer = setInterval(() => {
+                if (scrollValue < 0) clearInterval(timer);//トップに戻ったらタイマーをリセット
+                
+                document.scrollingElement.scrollTop = scrollValue;
+                scrollValue = scrollValue - 10; //スクロール量を10ずつ減らしていく
+            });
+        });
+
+    </script>
+</body>
+</html>

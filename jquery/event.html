@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            #wrap {
+            width: 400px;
+            text-align: center;
+            }
+            #text {
+            width: 400px;
+            height: 180px;
+            margin: auto;
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 2em;
+            color: #fff;
+            background-color: #666;
+            user-select: none;
+            }
+        </style>
+</head>
+<body>
+    
+    <div id="wrap">
+        <h1>10</h1>
+        <div id="text">ここをクリックする！</div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        let time =10;
+        let score=0;
+
+        const id = setInterval(() =>{
+            if(time<0){ clearInterval(id);
+            alert('結果'+score+'回でした');
+            time =10;}
+            $('h1').text(time--);
+        },1000);
+        $('#text').on('click',()=> score++);
+    </script>
+</body>
+</html>

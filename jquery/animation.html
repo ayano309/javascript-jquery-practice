@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+        position: absolute;
+      }
+    </style>
+</head>
+<body>
+    <h1 id="text">テキスト</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('#text')
+        .animate({left:'90%'},1000)
+        .animate({left:'40%'},1500)
+        .animate({fontSize:'8em'},500)
+        .animate({left:'60%',top:'40%'},300)
+        .animate({left:0,top:0,fontSize:'1em'},1000);
+    </script>
+</body>
+</html>
